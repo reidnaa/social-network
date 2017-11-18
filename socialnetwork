@@ -1,0 +1,88 @@
+
+
+var data = {
+  f01: {
+    name: "Alice",
+    age: 15,
+    follows: ["f02", "f03", "f04"]
+  },
+  f02: {
+    name: "Bob",
+    age: 20,
+    follows: ["f05", "f06"]
+  },
+  f03: {
+    name: "Charlie",
+    age: 35,
+    follows: ["f01", "f04", "f06"]
+  },
+  f04: {
+    name: "Debbie",
+    age: 40,
+    follows: ["f01", "f02", "f03", "f05", "f06"]
+  },
+  f05: {
+    name: "Elizabeth",
+    age: 45,
+    follows: ["f04"]
+  },
+  f06: {
+    name: "Finn",
+    age: 25,
+    follows: ["f05"]
+  }
+};
+
+function getUsersNames(data){
+
+  for (var user in data){
+
+    var userNames = data[user].name;
+
+
+    var followingUsers = data[user].follows;
+
+    var followingNames = followingUsers.map(getName);
+
+
+
+
+  }
+}
+
+function getName(id){
+  var user = data[id];
+  if (!user){
+    return null;
+  } else {
+    return user.name;
+  }
+}
+
+function whoFollowsMost(id){
+
+var mostfollowers= '';
+var mostfollowersamount = 0;
+  for ( var users in id){
+
+    var follows = id[users].follows;
+
+
+    if (follows.length > mostfollowersamount){
+      mostfollowers = users;
+      mostfollowersamount = follows.length
+    }
+
+
+
+  } console.log(getName(mostfollowers) + ' : ' + mostfollowersamount);
+
+
+
+
+}
+whoFollowsMost(data);
+
+
+
+getUsersNames(data);
